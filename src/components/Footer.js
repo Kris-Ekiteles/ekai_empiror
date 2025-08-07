@@ -35,6 +35,9 @@ const Footer = () => {
           
             <p>we are located at ....</p>
             
+        </div>
+        <div className="newslater">
+          <input type="email" placeholder="enter your email address" />
           
         </div>
       </footer>
