@@ -30,6 +30,13 @@ const Footer = () => {
           <a href="#" target="_blank" rel="noopener noreferrer"></a>
           <FaLinkedin size={24} style={{ marginRight: 8 }} />
         </div>
+        <div className="our_space">
+          <p> visit our space</p>
+          
+            <p>we are located at ....</p>
+            
+          
+        </div>
       </footer>
     </div>
   );
