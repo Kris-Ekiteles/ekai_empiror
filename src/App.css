@@ -7,15 +7,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 20px;
-  gap: 1rem;
-
-
- 
+  margin-right: 8rem;
+}
+nav a{
+  text-decoration: none;
+  
+}
+nav a:hover{
+  text-decoration: underline;
 }
 header h1{
   margin-right: 0;
   color: aqua;
   padding-left: 10px;
+  cursor: pointer;
 }
 
