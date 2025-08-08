@@ -1,25 +1,38 @@
 footer{
-     position: sticky;
+    position: sticky;
     bottom: 0;
     width: 100vw;
     background-color: #f1f1f1;
     display: flex;
-    justify-content: start;
+    justify-content: space-around;
     align-items: start;
-    flex-wrap: wrap;
     z-index: 1000;
-    gap: 3rem;
+    
+    padding-top: 10px;
 
 }
 .media_icons{
     cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    /* display: flex;
+    flex-direction: row; */
+    
+    gap: 10px;
     margin: 1rem;
+
     
     
 }
+.media_icons a{
+    padding: 2px;
+    margin: 5px;
+}
+.media_icons a:last-child{
+    background-color: green;
+}
 .our_space{
     margin: 1rem;
+}
+.newslater button{
+    width: 80px;
+    margin: 5px;
 }
