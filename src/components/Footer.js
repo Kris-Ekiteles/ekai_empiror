@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 import "./Footer.css";
 import {
   FaFacebook,
@@ -32,14 +33,15 @@ const Footer = () => {
         </div>
         <div className="our_space">
           <p> visit our space</p>
-          
-            <p>we are located at ....</p>
-            
+
+          <p>we are located at ....</p>
         </div>
         <div className="newslater">
+          <p>sign up for our newslatter</p>
           <input type="email" placeholder="enter your email address" />
-          
+          <button typeof="submit">submit</button>
         </div>
+      
       </footer>
     </div>
   );
