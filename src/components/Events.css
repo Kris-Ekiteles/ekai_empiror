@@ -1,0 +1,14 @@
+.upcoming-events{
+    margin: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid green;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 2px;
+}
+.btn{
+    color: red;
+    border-radius: 3px;
+    padding: 5px;
+}
