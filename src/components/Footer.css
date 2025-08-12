@@ -1,15 +1,13 @@
 footer{
-    position: sticky;
     bottom: 0;
     width: 100vw;
     background-color: #f1f1f1;
     display: flex;
     justify-content: space-around;
     align-items: start;
-    z-index: 1000;
-    
+    z-index: 1000;    
     padding-top: 10px;
-
+    position: absolute;
 }
 .media_icons{
     cursor: pointer;
@@ -18,8 +16,6 @@ footer{
     
     gap: 10px;
     margin: 1rem;
-
-    
     
 }
 .media_icons a{
