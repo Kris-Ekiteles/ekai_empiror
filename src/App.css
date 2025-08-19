@@ -1,25 +1,39 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-  nav{
+nav {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-right: 8rem;
+  justify-content: space-around;
+  background-color: gray;
+  position: relative;
+  padding: 1rem;
 }
-nav a{
+nav a {
   text-decoration: none;
-  
 }
-nav a:hover{
+nav a:hover {
   text-decoration: underline;
 }
-header h1{
-  margin-right: 0;
+nav h1 {
+  left: 0;
   color: aqua;
   padding-left: 10px;
   cursor: pointer;
 }
-
+.product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+@media (max-width: 600px) {
+  nav {
+    display: block;
+    width: 100%;
+    
+  }
+}
