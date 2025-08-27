@@ -28,10 +28,35 @@ footer {
   width: 80px;
   margin: 5px;
 }
+.media_icons a :hover {
+  padding: 7px;
+  margin: 7px;
+  background-color: green;
+}
+
 @media (max-width: 600px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+  }
   .newslater button {
     color: cyan;
     height: 40px;
     width: 90px;
+    gap: 1rem;
+  }
+  .media_icons a {
+    padding: 2px;
+    margin: 5px;
+    height: 30px;
+    width: 30px;
+    size: 30px;
+    line-height: 50px;
+    border: 2px solid green;
   }
 }
