@@ -1,0 +1,15 @@
+.About_us{
+display: flex;
+height: 600px;
+background-color: yellow;
+gap: 20px;
+
+}
+.about h2{
+    text-align: center;
+    font-weight: 20px;
+
+}
+.identity {
+    
+}
