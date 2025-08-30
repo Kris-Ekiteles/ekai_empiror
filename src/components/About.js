@@ -1,5 +1,6 @@
 import React from 'react'
 import "./About.css"
+import ReviewCard from './ReviewCard';
 
 const About = () => {
   return (
@@ -58,10 +59,17 @@ const About = () => {
         <div className="child afordable">
           <h4>afordable</h4>
           <p>
-            Experience premium safari adventures without the premium price tag.
-            We offer exceptional value for money.
+            Experience premium safari adventures without the premium price
+            tag.We offer exceptional value for money
           </p>
         </div>
+      </div>
+      <div className="review">
+        <h4>Testimonials</h4>
+        <ReviewCard text="Nice experience" />
+        <ReviewCard text="exciting experience" />
+        <ReviewCard text="Nice experience" />
+        <ReviewCard text="Nice experience" />
       </div>
     </div>
   );
