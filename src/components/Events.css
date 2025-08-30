@@ -6,15 +6,18 @@
     height: fit-content;
     width: fit-content;
     border-radius: 2px;
+    margin-bottom: 10px;
 }
-.btn{
-    color: red;
-    border-radius: 3px;
-    padding: 5px;
-}
+
 img{
     height: 180px;
     width: 180px;
     object-fit: cover;
     object-position: center;
+}
+@media(max-width:600px){
+   .product{
+    background-color: green;
+    margin-bottom: 10px;
+   }
 }
