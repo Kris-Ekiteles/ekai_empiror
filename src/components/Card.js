@@ -10,7 +10,10 @@ const Card = (props) => {
         <h2>{props.name}</h2>
         <p>{props.eventDescription}</p>
         <p className="price">{props.price}</p>
-        <button className="btn">{props.button}</button>
+        <div className="btn">
+          <button>{props.button}</button>
+          <button>{props.reserve}</button>
+        </div>
       </div>
     </div>
   );
