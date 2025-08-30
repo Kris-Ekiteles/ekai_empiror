@@ -1,6 +1,11 @@
 .btn{
-    color: #412101;
+    display: flex;
+    justify-content: space-between;
+  
+}
+.btn button{
+      color: #412101;
     border-radius: 5px;
-    padding: 5px;   
-
+    padding: 5px; 
+cursor: pointer;
 }
