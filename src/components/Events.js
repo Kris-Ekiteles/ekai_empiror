@@ -2,17 +2,25 @@ import React from "react";
 import { Route, Router, Link } from "react-router-dom";
 import "./Events.css";
 import Image from "../Assets/namanga.png";
+import Card from "./Card";
 
 const Events = () => {
   return (
-    <div className="upcoming-events">
-      <img src="" alt="" />
-      <div className="event_description">
-        <h2></h2>
-        <p className="event_disc"></p>
-        <p className="price"></p>
-        <button className="btn">book slot</button>
-      </div>
+    <div className="product">
+      <Card
+        img={"namanga"}
+        name="Namanga Drive"
+        eventDescription="Namanga"
+        price="3500"
+        button="book event"
+      />
+      <Card
+        img={"namanga"}
+        name="Namanga Drive"
+        eventDescription="Namanga"
+        price="2500"
+        button="book event"
+      />
     </div>
   );
 };
