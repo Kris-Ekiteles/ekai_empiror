@@ -13,7 +13,6 @@ import {
 const Footer = () => {
   return (
     <div>
-      <h2>footer section</h2>
       <footer>
         <div className="media_icons">
           <p>connect with us</p>
