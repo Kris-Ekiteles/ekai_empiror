@@ -1,13 +1,14 @@
 footer {
   bottom: 0;
-  width: 100vw;
-  background-color: #f1f1f1;
+  width: 100%;
+  background-color: #412101;
   display: flex;
   justify-content: space-around;
-  align-items: start;
-  z-index: 1000;
+  align-items: start; 
+  color: #fea400;
   padding-top: 10px;
   position: absolute;
+
 }
 .media_icons {
   cursor: pointer;
@@ -28,21 +29,16 @@ footer {
   width: 80px;
   margin: 5px;
 }
-.media_icons a :hover {
-  padding: 7px;
-  margin: 7px;
-  background-color: green;
-}
-
 @media (max-width: 600px) {
   footer {
     display: flex;
-    flex-direction: column;
-    z-index: 1000;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
+    flex-direction: column; 
+    position: absolute;   
+    padding: 10px;    
     box-sizing: border-box;
+  
+    width: 100%;
+   
   }
   .newslater button {
     color: cyan;
