@@ -1,6 +1,10 @@
+.main_about{
+
+}
 .About_us{
+    padding: 1.5rem;
 display: flex;
-height: 600px;
+height: 400px;
 background-color: yellow;
 gap: 20px;
 
@@ -11,5 +15,32 @@ gap: 20px;
 
 }
 .identity {
-    
+    /* image div */
 }
+.why_us{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+   
+}
+.why_us h2{
+    margin-bottom: 3px;
+    flex-basis: 100%;
+    text-align: center;
+    ;
+}
+.why_us .child{
+  margin-left: 70px;
+  margin-right: 70px;
+    width: 200px;
+    padding: 10px;
+    border: 2px solid #eb6b03;
+    border-radius: 5px;
+}
+.why_us .child h4{
+    text-align: center;
+    text-decoration: underline ;
+}
+
