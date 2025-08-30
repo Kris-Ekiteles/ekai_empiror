@@ -13,6 +13,7 @@ const Events = () => {
         eventDescription="Namanga"
         price="3500"
         button="book event"
+        reserve="reserve slot"
       />
       <Card
         img={"namanga"}
@@ -20,6 +21,7 @@ const Events = () => {
         eventDescription="Namanga"
         price="2500"
         button="book event"
+        reserve="reserve slot"
       />
     </div>
   );
