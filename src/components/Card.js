@@ -1,17 +1,19 @@
 import React from "react";
-import Events from "./Events";
 import namanga from "../Assets/namanga.png"
+import "./Card.css"
 
-const card = () => {
+const Card = (props) => {
   return (
-    <div className="product">
-      <Events 
-      image={namanga}
-      />
-      <Events />
-      <Events />
+    <div className="upcoming-events">
+      <img src={props.img} alt="" />
+      <div className="event_description">
+        <h2>{props.name}</h2>
+        <p>{props.eventDescription}</p>
+        <p className="price">{props.price}</p>
+        <button className="btn">{props.button}</button>
+      </div>
     </div>
   );
 };
 
-export default card;
+export default Card;
