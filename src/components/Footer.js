@@ -17,18 +17,24 @@ const Footer = () => {
         <div className="media_icons">
           <p>connect with us</p>
 
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>
-          <FaFacebook size={24} style={{ marginRight: 8 }} />
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>
-          <FaTwitter size={24} style={{ marginRight: 8 }} />
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>
-          <FaWhatsapp size={24} style={{ marginRight: 8 }} />
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>
-          <FaYoutube size={24} style={{ marginRight: 8 }} />
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>
-          <FaTiktok size={24} style={{ marginRight: 8 }} />
-          <a href="#" target="_blank" rel="noopener noreferrer"></a>
-          <FaLinkedin size={24} style={{ marginRight: 8 }} />
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <FaFacebook size={30} style={{ marginRight: 8 }} />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <FaTwitter size={30} style={{ marginRight: 8 }} />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <FaWhatsapp size={30} style={{ marginRight: 8 }} />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <FaYoutube size={30} style={{ marginRight: 8 }} />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <FaTiktok size={30} style={{ marginRight: 8 }} />
+          </a>
+          <a href="#" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin size={30} style={{ marginRight: 8 }} />
+          </a>
         </div>
         <div className="our_space">
           <p> visit our space</p>
@@ -40,7 +46,6 @@ const Footer = () => {
           <input type="email" placeholder="enter your email address" />
           <button typeof="submit">submit</button>
         </div>
-      
       </footer>
     </div>
   );
