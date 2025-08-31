@@ -15,7 +15,7 @@ function App() {
         <div>
           <h1>EkaiEmpiror</h1>
         </div>
-        <Link to="/">Home</Link>
+        <Link to="/" >Home</Link>
         <Link to="/event">Events</Link>
         <Link to="/about">About</Link>
         <Link to="/gallery">Shop</Link>
