@@ -22,12 +22,13 @@ function App() {
         <Link to="/blog">Blog</Link>
       </nav>
       <Routes>
-        <Route path="/#" element={<Home />} />
+        <Route path="/#"  element={<Home />} />
         <Route path="/event" element={<Events />} />
         <Route path="/about" element={<About />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blog" element={<Blog />} />
       </Routes>
+      
       <Footer />
     </div>
   );
