@@ -1,16 +1,17 @@
 import React from 'react'
 import "./About.css"
 import ReviewCard from './ReviewCard';
+import namanga from "../Assets/namanga.png"
 
 const About = () => {
   return (
     <div className="main_about">
       <div className="About_us">
         <div className="identity">
-          <img src="" alt="Ekai Safaris" />
+          <img src={namanga} alt="Ekai Safaris" />
           <p>
             {/* image should cover this seze or 3/4 of this size */}
-            Ekai Safaris is a premier safari and tour company dedicated to
+            {/* Ekai Safaris is a premier safari and tour company dedicated to
             crafting unforgettable journeys into the heart of Kenya's most
             spectacular wilderness areas. We specialize in creating
             personalized, immersive experiences that connect travelers with the
@@ -19,7 +20,7 @@ const About = () => {
             a deep commitment to sustainable tourism, expert guides, and
             attention to detail, we transform adventurous dreams into enduring
             memories, offering more than just a trip—but a profound exploration
-            of the wild.
+            of the wild. */}
           </p>
         </div>
         <div className="about">
