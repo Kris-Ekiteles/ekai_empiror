@@ -28,7 +28,11 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/blog" element={<Blog />} />
       </Routes>
-      
+      {/* the content here should only be shown in main app/home only */}
+     
+     <h4>this should show on the home app section only</h4>
+      <h1>Ekai Safaris</h1>
+     
       <Footer />
     </div>
   );
