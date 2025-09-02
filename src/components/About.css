@@ -121,6 +121,24 @@
   flex-basis: 100%;
   text-align: center;
 }
+.gallery{
+height: fit-content;
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;  
+}
+.gallery .child{
+  height: 200px;
+  width: 150px;
+  border: 1px solid #eb6b03;
+  margin: 2px;
+}
+
+
+
+
+
 @media (max-width: 600px) {
   .child {
     margin-bottom: 10px;
