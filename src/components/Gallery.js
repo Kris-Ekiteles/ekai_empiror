@@ -1,11 +1,17 @@
 import React from 'react'
-
+import Shop from './Shop'
+import './Shop.css'
 const Gallery = () => {
   return (
     <div>
-      <h1>welcome to the gallery section</h1>
+      <Shop
+        img=""
+        name="cap"
+        price="20"
+        action="order"
+      />
     </div>
-  )
+  );
 }
 
 export default Gallery
