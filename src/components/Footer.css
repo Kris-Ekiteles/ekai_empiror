@@ -1,6 +1,6 @@
 footer {
   bottom: 0;
-  width: 100vw;
+  width: 100%;
   height: fit-content;
   background-color: #412101;
   display: flex;
@@ -9,7 +9,7 @@ footer {
   color: #fea400;
   padding-top: 10px;
   padding-bottom: 10px;
-  position: absolute;
+  position: relative;
   margin-bottom: 0;
   margin-top: auto;
 
