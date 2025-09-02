@@ -69,6 +69,11 @@ const About = () => {
         <ReviewCard text="Nice experience" />
         <ReviewCard text="Nice experience" />
       </div>
+      <div className="gallery">
+<div className="child"> <h2>child 1</h2></div>
+<div className="child"><h2>child 2</h2></div>
+<div className="child"><h2>child 3</h2></div>
+      </div>
     </div>
   );
 };
