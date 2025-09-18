@@ -2,6 +2,7 @@ import React from "react";
 import "./About.css";
 import ReviewCard from "./ReviewCard";
 import namanga from "../Assets/namanga.png";
+import Typewriter from "./Textanim";
 // not the official item to be where placed
 import Card from "./Card";
 
@@ -59,8 +60,8 @@ const About = () => {
         </div>
       </div>
       <div className="join_us">
-        <h4>Join us As we expoler Kenya and have your best time</h4>
-        {/* the below card are temporarily here and shall be replaced later for the images cuptured in the recent adventures */}
+         <p><Typewriter words={['join us as we explore Kenya and have your best time']} /></p>
+       
       </div>
       <div className="review">
         <h4>Testimonials</h4>
