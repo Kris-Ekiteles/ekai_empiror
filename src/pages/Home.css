@@ -1,0 +1,20 @@
+.hero_section{
+    background-image: url('../Assets/FB_IMG_1758223057365.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+   
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+@media (max-width: 768px) {
+    .hero_section {
+        height: 400px;
+         background-size: contain;
+         text-align: center;
+    }
+}
