@@ -1,6 +1,6 @@
 import React from 'react'
 // shares css with about page
-import "./About.css";
+import "../pages/About.css";
 
 const ReviewCard = (props) => {
   return (
