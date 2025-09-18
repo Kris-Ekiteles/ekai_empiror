@@ -8,6 +8,7 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import Blog from "./components/Blog";
 
+
 function App() {
   return (
     <div className="App">
