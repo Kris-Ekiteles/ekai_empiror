@@ -2,14 +2,14 @@
     background-image: url('../Assets/FB_IMG_1758223057365.jpg');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-   
-    height: 300px;
+    background-repeat: no-repeat;   
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: white;
+    margin-bottom: 20px;
 }
 @media (max-width: 768px) {
     .hero_section {
