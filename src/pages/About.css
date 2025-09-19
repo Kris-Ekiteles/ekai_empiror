@@ -9,16 +9,23 @@
   display: flex;
   /* display: grid;
   grid-template-columns: auto auto; */
-  width: 100%;
-  line-height: 1.6;  
+  width: 80%;
+  margin: auto;
+  margin-top: 20px; 
+  line-height: 1.6;
   justify-content: center;
-  height: fit-content;
-  background-color: yellow;
+  height: 350px;
   overflow: hidden;
 }
-.about h2 {
+.about_more h2 {
   text-align: center;
   font-size: 20px;
+   
+}
+.about_more{
+  background-color: yellow;
+  text-wrap: wrap;
+  width: 50%;
 }
 
 .why_us {
@@ -33,6 +40,7 @@
   flex-basis: 100%;
   text-align: center;
 }
+
 .why_us .child {
   margin: 15px;
   box-sizing: border-box;
@@ -44,18 +52,17 @@
   overflow-wrap: break-word;
 }
 .identity {
-        /* width: 100%;
- max-width: 100%; */
-   
+ width: 100%; 
   overflow: hidden;
   border: 3px solid white;
 }
 .identity img {
 
-  height: auto;
+  height: 100%;
   object-fit: cover;
   border-radius: 8px;
   transition: transform 0.5s ease;
+  width: 100%;
 }
 .join_us{
   display: flex;
