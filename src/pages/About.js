@@ -1,7 +1,6 @@
 import React from "react";
 import "../pages/About.css";
 import ReviewCard from "../components/ReviewCard";
-import namanga from "../Assets/namanga.png";
 import Typewriter from "../components/Textanim";
 // not the official item to be where placed
 import Card from "../components/Card";
@@ -11,12 +10,12 @@ const About = () => {
     <div className="main_about">
       <div className="About_us">
         <div className="identity">
-          <img src={namanga} alt="Ekai Safaris" />
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="about us" />
           
             {/* image should cover this seze or 3/4 of this size */}
          
         </div>
-        <div className="about">
+        <div className="about_more">
           <h2>About EkaiSafaris</h2>
           
           <p>
@@ -71,9 +70,10 @@ const About = () => {
         <ReviewCard text="Nice experience" />
       </div>
       <div className="gallery">
-<div className="child"> <h2>child 1</h2></div>
-<div className="child"><h2>child 2</h2></div>
-<div className="child"><h2>child 3</h2></div>
+        <h2>memories</h2>
+<div className="child"></div>
+<div className="child"></div>
+<div className="child"></div>
       </div>
     </div>
   );
