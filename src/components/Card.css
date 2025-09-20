@@ -3,9 +3,47 @@
     justify-content: space-between;
   
 }
+.upcoming-events{
+padding: 8px;
+    box-sizing: border-box;
+    border: 2px solid green;
+    height: 310px;
+    width: 250px;
+    border-radius: 2px;
+}
 .btn button{
       color: #412101;
     border-radius: 5px;
-    padding: 5px; 
+    padding: 5px;
 cursor: pointer;
+margin-bottom: 2px;
+
+}
+.upcoming-events img{
+    border-radius: 5px;
+    height: 205px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 5px;
+}
+
+@media(max-width:600px){
+    .upcoming-events{
+        margin: 3px;
+        padding: 3px;
+        width: 170px;
+        height: 315px;
+       box-shadow: 2px 2px 5px grey;
+        box-sizing: border-box;
+    }
+     .upcoming-events p{
+      margin-top: 3px;
+    }
+    .btn{
+    margin-bottom: 3px;
+    }
+    .price{
+        margin-bottom: 3px;
+    }
 }
