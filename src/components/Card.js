@@ -1,5 +1,4 @@
 import React from "react";
-import namanga from "../Assets/namanga.png"
 import "./Card.css"
 
 const Card = (props) => {
@@ -7,8 +6,7 @@ const Card = (props) => {
     <div className="upcoming-events">
       <img src={props.img} alt="" />
       <div className="event_description">
-        <h2>{props.name}</h2>
-        <p>{props.eventDescription}</p>
+        <h3>{props.name}</h3>
         <p className="price">{props.price}</p>
         <div className="btn">
           <button>{props.button}</button>
