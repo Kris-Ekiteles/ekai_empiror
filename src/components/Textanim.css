@@ -18,3 +18,11 @@
     opacity: 0;
   }
 }
+@media (max-width: 768px) {
+  .typewriter {
+    font-size: 1rem;
+    text-align: center;
+     width: 300px;
+      white-space: normal;
+}  
+  }
