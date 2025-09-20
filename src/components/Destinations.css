@@ -1,0 +1,28 @@
+.destinations{
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 3px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+    height:fit-content;
+    width: 300px;
+    margin-bottom: 20px;
+}
+.destinations:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+.image_container{
+    width: 100%;
+    height: 180px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.image_container img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
