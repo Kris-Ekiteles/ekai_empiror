@@ -6,6 +6,7 @@ import { FaPlane,FaBus } from 'react-icons/fa'
 import { MdOutlineEventNote, MdOutlineGroups2 } from "react-icons/md";
 import Destinations from '../components/Destinations'
 import About from './About'
+import Events from './Events'
 
 const Home = () => {
   return (
@@ -65,6 +66,7 @@ const Home = () => {
     />
 
 </div>
+<Events />
 <About />
   
     </div>
