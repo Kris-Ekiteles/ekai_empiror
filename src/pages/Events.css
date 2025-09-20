@@ -1,23 +1,10 @@
-.upcoming-events{
-    margin: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-    border: 2px solid green;
-    height: fit-content;
-    width: fit-content;
-    border-radius: 2px;
-    margin-bottom: 10px;
-}
 
-img{
-    height: 180px;
-    width: 180px;
-    object-fit: cover;
-    object-position: center;
-}
-@media(max-width:600px){
-   .product{
-    background-color: green;
+@media(max-width:768px){
+   .product{  
     margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
    }
 }
