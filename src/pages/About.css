@@ -105,6 +105,10 @@
     .why_us .child {
       animation : slideInFromLeft 1s ease-out forwards; /* Name, duration, timing, fill-mode */
     }
+    .why_us h2{
+      text-decoration: underline 2px #eb6b03;
+  
+    }
 .review_card {
   height: fit-content;
   width: 200px;
