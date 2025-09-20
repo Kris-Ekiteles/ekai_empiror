@@ -26,3 +26,30 @@
     object-fit: cover;
     transition: transform 0.3s;
 }
+.destinations button{
+    border: none;
+    padding: 10px 20px;
+    outline: none;
+    border-radius: 5px;
+    background-color: #ff6200;
+    color: white;
+    cursor: pointer;
+}
+@media (max-width: 768px) {
+    .destinations{
+        width: 200px;
+        margin: 5px;
+        padding: 5px;
+        gap: 4px;
+    }
+  .destinations:hover{
+    transform: none;
+}
+    button{
+        border: none;
+        padding: 8px 16px;
+        outline: none;
+        border-radius: 5px;
+        background-color: #ff6200;
+    }
+}
