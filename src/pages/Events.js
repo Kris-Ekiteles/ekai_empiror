@@ -1,25 +1,24 @@
 import React from "react";
-import { Route, Router, Link } from "react-router-dom";
 import "./Events.css";
 import Image from "../Assets/namanga.png";
 import Card from "../components/Card";
+import suswa from "../Assets/suswa.jpg";
+import njiine from "../Assets/njiine_kabia.jpg";
 
 const Events = () => {
   return (
     <div className="product">
       <Card
-        img={"namanga"}
-        name="Namanga Drive"
-        eventDescription="Namanga"
-        price="3500"
+        img={suswa}
+        name="suswa fun Drive"
+        price="1700"
         button="book event"
         reserve="reserve slot"
       />
       <Card
-        img={"namanga"}
-        name="Namanga Drive"
-        eventDescription="Namanga"
-        price="2500"
+        img={njiine}
+        name="Njiine Kabia Expedition"
+        price="3000"
         button="book event"
         reserve="reserve slot"
       />
