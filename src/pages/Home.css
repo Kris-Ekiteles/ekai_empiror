@@ -32,10 +32,6 @@
 }
 .travel_destination h2{
      color: #700303;
-   /* font-size: 2rem;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    margin-bottom: 3px;*/
    flex-basis: 100%;
    text-align: center;
    flex-wrap: wrap;
@@ -46,9 +42,22 @@
         height: 400px;
          background-size: contain;
          text-align: center;
+         width: 100%;
     }
     .hero_section p{
     margin-left: 5px;
-    text-wrap: wrap;
+    
+    }
+    .travel_destination{
+        display: grid;
+        grid-template-columns: auto auto;
+        margin: 3px;
+       
+
+    }
+    .hero-services{
+       padding: 2px;        
+        gap: 5px;
+        height: fit-content;
     }
 }
