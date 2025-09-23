@@ -7,8 +7,19 @@ import { MdOutlineEventNote, MdOutlineGroups2 } from "react-icons/md";
 import Destinations from '../components/Destinations'
 import About from './About'
 import Events from './Events'
+import {useState} from 'react'
+
 
 const Home = () => {
+
+// usestate for the services component
+  
+  const [activeService, setActiveService] = useState(null);
+const toggleMoreInfo = (serviceName) => {
+ 
+ setActiveService(prev => prev === serviceName ? null : serviceName);
+
+  };
   return (
     <div>
       <div className='hero_section'>
@@ -17,25 +28,70 @@ const Home = () => {
 <div className="hero-services">
    <Services
   icon={<FaBus />}
-  name="trips"
+  name="Trips"
+  onButtonClick={() => toggleMoreInfo("Trips")}
   button="Learn More"
    />
+   {activeService === "Trips" && (
+          <div className="more-info">
+           
+             <button className="close-btn" onClick={() => toggleMoreInfo("Trips")}>
+        close
+      </button>
+       <h2>Trips</h2>
+            <p>We plan and manage personalized trips on your behalf, handling every detail for a smooth and enjoyable journey.</p>
+          </div>
+        )}
   <Services
-  icon={<FaPlane />}
-  name="Travel"
+  icon={<FaPlane />}  
+  name="Vacations"
+  onButtonClick={() => toggleMoreInfo("Vacations")}
   button="Learn More"
    />
+     {activeService === "Vacations" && (
+          <div className="more-info">
+             <button className="close-btn" onClick={() => toggleMoreInfo("Vacations")}>
+        close
+      </button>
+            <h2>enjoy your dream vacation</h2>
+            <p>Customized vacation planning for groups or individuals, ensuring stress-free travel and unforgettable experiences.</p>
+          </div>
+        )}
+
     <Services
   icon={<MdOutlineGroups2 />}
   name="Group Tours"
   button="Learn More"
+  onButtonClick={() => toggleMoreInfo("Group Tours")}
    />
+    {activeService === "Group Tours" && (
+          <div className="more-info">
+            
+             <button className="close-btn" onClick={() => toggleMoreInfo("Group Tours")}>
+        close
+      </button>
+      <h2>Group tours and road trips</h2>
+            <p>Exciting group tours and road trips across Kenya, perfect for adventure, bonding, and unforgettable memories.</p>
+          </div>
+        )}
 
     <Services
   icon={<MdOutlineEventNote />}
   name="Events"
   button="Learn More"
+  onButtonClick={() => toggleMoreInfo("Events")}
    />
+    { activeService === "Events" && (
+          <div className="more-info">
+       <button className="close-btn"        
+            onClick={() => toggleMoreInfo("Events")}
+          >
+            close
+          </button>
+            <h2>Events</h2>
+            <p>We organize memorable events with seamless planning, tailored to your style and budget with site visits included.</p>
+          </div>
+        )}
 </div>
 
 <div className="travel_destination">
@@ -66,8 +122,21 @@ const Home = () => {
     />
 
 </div>
+
+{/* Call To Action Banner */}
+<div className="cta_banner">
+  <h2>Ready for Your Own Adventure?</h2>
+  <p>
+    Join hundreds of satisfied travelers who have experienced the magic of Africa with us.
+  </p>
+  <div className="cta_actions">
+    <button className="btn btn-primary">Start Planning</button>
+    <button className="btn btn-outline">Contact Us</button>
+  </div>
+</div>
+
 <Events />
-<About />
+<About hideAboutUs={true} />
   
     </div>
   )
