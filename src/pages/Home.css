@@ -3,15 +3,23 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;   
-    height: 400px;
+    height: 700px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
     color: white;
     margin-bottom: 20px;
+    /* added */
+    min-height: 600px;
+    position: relative;
+    
+
+
 }
 .hero-services{
+    perspective: 1000px;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -20,6 +28,48 @@
     width: 60%;
     justify-content: center;
     gap: 20px;
+}
+
+/* CTA banner */
+.cta_banner{
+    width: 85%;
+    margin: 40px auto;
+    padding: 32px 24px;
+    color: #fff;
+    text-align: center;
+    background: linear-gradient(135deg, #f9b233, #ff4d00);
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+.cta_banner h2{
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+.cta_banner p{
+    font-size: 16px;
+    opacity: .95;
+}
+.cta_actions{
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+.btn{
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+.btn-primary{
+    background: #ffffff;
+    color: #ff4d00;
+}
+.btn-outline{
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.7);
+    color: #fff;
 }
 
 .travel_destination{
@@ -36,26 +86,53 @@
    text-align: center;
    flex-wrap: wrap;
 }
+.more-info{
+    position: absolute;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+   width: 250px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.close-btn{
+    background-color: #eb6b03;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    float: right;
+}
+
 
 @media (max-width: 768px) {
     .hero_section {
-        height: 400px;
+        height: 500px;
          background-size: contain;
          text-align: center;
          width: 100%;
     }
+    .cta_banner{
+        width: 92%;
+        padding: 24px 16px;
+        margin: 24px auto;
+    }
+    .cta_banner h2{ font-size: 22px; }
+    .cta_banner p{ font-size: 14px; }
+    .cta_actions{ gap: 12px; }
     .hero_section p{
-    margin-left: 5px;
-    
+    margin-left: 5px;    
     }
     .travel_destination{
         display: grid;
-        grid-template-columns: auto auto;
-        margin: 3px;
-       
+        grid-template-columns: auto auto;        
+        margin: 3px;      
 
     }
     .hero-services{
+        perspective: 1000px;
        padding: 2px;        
         gap: 5px;
         height: fit-content;
