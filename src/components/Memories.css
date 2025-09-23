@@ -1,0 +1,22 @@
+.memories{
+    height: 300px;
+    width: 400px;
+    margin: 10px;
+    padding: 0px;
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.memories img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+
+}
+@media(max-width:600px){
+    .memories{
+        height: 200px;
+        width: 250px;
+        padding: 0px;
+    }
+}
