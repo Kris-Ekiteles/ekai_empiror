@@ -2,12 +2,22 @@ import React from "react";
 import "../pages/About.css";
 import ReviewCard from "../components/ReviewCard";
 import Typewriter from "../components/Textanim";
+import Image1 from "../Assets/FB_IMG_1758223092542.jpg";
+import Image2 from "../Assets/FB_IMG_1758223104890.jpg"; 
+import Image3 from "../Assets/FB_IMG_1758223057365.jpg"; 
+import Image4 from "../Assets/FB_IMG_1758223176045.jpg";
+import Image5 from "../Assets/FB_IMG_1758223112678.jpg"; 
+import Image6 from "../Assets/FB_IMG_1758223168632.jpg"; 
+import Image7 from "../Assets/FB_IMG_1758223155027.jpg"; 
+import Image8 from "../Assets/FB_IMG_1758223121424.jpg"; 
+// import Image9 from "../Assets/FB_IMG_1758223080217.jpg";
 // not the official item to be where placed
 import Card from "../components/Card";
-
-const About = () => {
+import Memories from "../components/Memories";
+const About = ({ hideAboutUs = false }) => {
   return (
     <div className="main_about">
+      {!hideAboutUs && (
       <div className="About_us">
         <div className="identity">
         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="about us" />
@@ -32,6 +42,7 @@ const About = () => {
           </p>
         </div>
       </div>
+      )}
       <div className="why_us">
         <h2> why us</h2>
         <div className="child safety">
@@ -70,10 +81,16 @@ const About = () => {
         <ReviewCard text="Nice experience" />
       </div>
       <div className="gallery">
-        <h2>memories</h2>
-<div className="child"></div>
-<div className="child"></div>
-<div className="child"></div>
+        {/* <h2>memories</h2> */}
+        <Memories img={Image1} />
+        <Memories img={Image2} />
+        <Memories img={Image3} />
+        <Memories img={Image4} />
+        <Memories img={Image5} />
+        <Memories img={Image6} />
+        <Memories img={Image7} />
+        <Memories img={Image8} />
+
       </div>
     </div>
   );
