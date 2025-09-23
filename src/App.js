@@ -7,27 +7,54 @@ import Gallery from "./pages/Gallery";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import Blog from "./pages/Blog";
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 
 function App() {
+
+// will be visible for small screens sizes
+ const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(prev => !prev);
+
   return (
     <div className="App">
-      <nav>
+      <nav className="nav-large-screen">
         <div>
           <h1>EkaiEmpiror</h1>
         </div>
         <Link to="/" >Home</Link>
         <Link to="/event">Events</Link>
         <Link to="/about">About</Link>
-        <Link to="/gallery">Shop</Link>
-        <Link to="/blog">Blog</Link>
+        {/* <Link to="/gallery">Shop</Link>
+        <Link to="/blog">Blog</Link> */}
       </nav>
+
+ <nav className="navbar">
+        <div className="logo">
+          <h1>EkaiEmpiror</h1>
+        </div>
+
+        <div className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <Link to="/" onClick={toggleMenu}>Home</Link>
+          <Link to="/event" onClick={toggleMenu}>Events</Link>
+          <Link to="/about" onClick={toggleMenu}>About</Link>
+          {/* <Link to="/gallery" onClick={toggleMenu}>Shop</Link>
+          <Link to="/blog" onClick={toggleMenu}>Blog</Link> */}
+        </div>
+
+        <div className="hamburger" onClick={toggleMenu}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </div>
+      </nav>
+
       <Routes>
         <Route path="/"  element={<Home />} />
         <Route path="/event" element={<Events />} />
         <Route path="/about" element={<About />} />
-        <Route path="/gallery" element={<Gallery />} />
-        <Route path="/blog" element={<Blog />} />
+        {/* <Route path="/gallery" element={<Gallery />} />
+        <Route path="/blog" element={<Blog />} /> */}
       </Routes>   
      
       <Footer />
