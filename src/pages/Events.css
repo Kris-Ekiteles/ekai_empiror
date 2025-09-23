@@ -1,4 +1,22 @@
 
+/* Make the routed content stretch on Events page so footer stays at bottom */
+.app-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.product{  
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+   gap: 20px;
+   flex-wrap: wrap;
+   padding: 40px;
+   padding-top: 80px; /* space for floating navbar */
+    flex: 1; /* occupy remaining space to push footer down */
+
+}
 @media(max-width:768px){
    .product{  
     margin-bottom: 10px;
@@ -6,5 +24,7 @@
     grid-template-columns: auto auto;
     justify-content: center;
     align-items: center;
+    padding-top: 64px; /* adjust for smaller navbar height on mobile */
+    flex: 1;
    }
 }
