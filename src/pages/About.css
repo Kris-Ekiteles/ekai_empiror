@@ -120,6 +120,42 @@
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   
 }
+.testimonial_card{
+  max-width: 520px;
+  width: 90%;
+  background: #fff;
+  border: 1px solid #f0e8dc;
+  border-radius: 12px;
+  padding: 20px 22px;
+  box-shadow: 0 6px 22px rgba(0,0,0,0.08);
+}
+.testimonial_card .stars{
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.testimonial_card .star{
+  color: #e0d3c2;
+}
+.testimonial_card .star.filled{
+  color: #f5b400;
+}
+.testimonial_card .quote{
+  color: #555;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+.testimonial_card .reviewer{
+  margin-top: 8px;
+}
+.testimonial_card .review_name{
+  font-weight: 700;
+  color: #eb6b03;
+}
+.testimonial_card .review_location{
+  color: #7a7a7a;
+  font-size: 14px;
+}
 .review {
   display: flex;
   justify-content: center;
@@ -127,6 +163,19 @@
   padding: 10px;
   flex-wrap: wrap;
 
+}
+.review h1{
+  flex-basis: 100%;
+  text-align: center;
+  color: #eb6b03;
+  margin: 4px 0;
+  text-transform: capitalize;
+}
+.review > p{
+  flex-basis: 100%;
+  text-align: center;
+  color: #555;
+  margin-bottom: 10px;
 }
 .review h4 {
   margin-bottom: 3px;
@@ -142,9 +191,22 @@ align-items: center;
 flex-wrap: wrap;
 background-color: #f4f4f4;
 margin-bottom: 20px;
-padding-left: 70px;
+padding-left:120px ;
+padding-right: 120px;
+padding-bottom: 50px;
 
-
+}
+.gallery h2{
+  flex-basis: 100%;
+  text-align: center;
+  color: #eb6b03;
+  margin-top: 10px;
+}
+.gallery > p{
+  flex-basis: 100%;
+  color: #555;
+  margin: 4px 0 10px 0;
+  text-align: center;
 }
 
 
@@ -156,11 +218,12 @@ padding-left: 70px;
     display: flex;
     flex-direction: column;
   }
-  .gallery{
-
-      
+  .gallery{      
     width: 100vw;
-    justify-content: start;
+    justify-content: start;  
+    display: flex;
+    justify-content: center;
+    align-items: center; 
   
 }
 }
@@ -174,6 +237,11 @@ padding-left: 70px;
   flex-wrap: wrap; /* Allow stacking on small screens */
   width: 80%;
   margin: 10px auto;
+  margin-top: 0;
+  padding-top: 80px; /* clear floating navbar */
+  background: linear-gradient(135deg, #fff, #fff8f0);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 }
 
 .identity {
@@ -191,8 +259,35 @@ padding-left: 70px;
 .about_more {
   flex: 1;
   max-width: 50%;
+  color: #2d2d2d;
+  line-height: 1.7;
 }
 .about_more h2 {
   font-size: 24px;
   margin-bottom: 1rem;
+  color: #eb6b03;
+  text-decoration: underline 2px #eb6b03;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .About_us {
+    flex-direction: column;
+    width: 92%;
+    padding: 1rem;
+    padding-top: 64px; /* mobile navbar height */
+    gap: 1rem;
+  }
+  .identity,
+  .about_more {
+    max-width: 100%;
+  }
+  .about_more h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+  .about_more p {
+    font-size: 14px;
+    text-align: left;
+  }
 }

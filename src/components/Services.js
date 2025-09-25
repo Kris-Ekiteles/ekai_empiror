@@ -1,17 +1,22 @@
 import React from 'react'
+import {useState} from 'react'
 
 import "./Services.css"
-const Services = (props) => {
+const Services = ({icon,name,description,button,onButtonClick}) => {
+
+ 
   return (
     <div>
       <div className="services">
-        <p>{props.icon}</p>
-        <h3>{props.name}</h3>
-        <p>{props.description}</p>
-        <button>{props.button}</button>
+        <p>{icon}</p>
+        <h3>{name}</h3>
+        <p>{description}</p>
+        <button onClick={onButtonClick}>{button}</button>
       </div>
     </div>
   )
 }
 
 export default Services
+
+     

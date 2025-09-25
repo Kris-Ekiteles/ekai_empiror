@@ -9,6 +9,7 @@ import PayNow from "../components/PayNow";
 const Events = () => {
   return (
     <div className="product">
+     
       <Card
         img={suswa}
         name="suswa fun Drive"

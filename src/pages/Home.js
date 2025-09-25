@@ -8,6 +8,8 @@ import Destinations from '../components/Destinations'
 import About from './About'
 import Events from './Events'
 import {useState} from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import PlanTripModal from '../components/PlanTripModal'
 
 
 const Home = () => {
@@ -15,6 +17,8 @@ const Home = () => {
 // usestate for the services component
   
   const [activeService, setActiveService] = useState(null);
+  const [openPlan, setOpenPlan] = useState(false);
+  const navigate = useNavigate();
 const toggleMoreInfo = (serviceName) => {
  
  setActiveService(prev => prev === serviceName ? null : serviceName);
@@ -23,7 +27,16 @@ const toggleMoreInfo = (serviceName) => {
   return (
     <div>
       <div className='hero_section'>
-       <p><Typewriter words={['join us as we explore Kenya and have your best time', 'book with us for event planning', 'travel in style']} /></p>
+        <div className="pic">
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="hero" />
+        </div>
+        <div className="CTA">        
+       <h2>Ekai Safaris</h2>
+       <p>our team is dedicated to providing you with the best experience</p>
+       {/* <p><Typewriter words={['join us as we explore Kenya and have your best time', 'book with us for event planning', 'travel in style']} /></p> */}
+       <a href="#travel_destination" className="hero_cta">explore more</a>
+       <a href="#about_us" className="hero_cta">learn more</a>
+       </div>
       </div>
 <div className="hero-services">
    <Services
@@ -94,7 +107,27 @@ const toggleMoreInfo = (serviceName) => {
         )}
 </div>
 
-<div className="travel_destination">
+<div className="filter-loc">
+  <div className="side-pic">
+<div className="filter-img">
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="" />
+  </div>
+  </div>
+<div className="filter-form">
+  <label>location</label>
+  <input type="text"placeholder='Nanyuki,olesereni'/>
+  <label>Date</label>
+  <input type=''></input>
+  <label>Price</label>
+  <input type="text"/>
+  <div className="preview-book">
+   <button className="preview preview-btn">Preview Hotel</button>
+   <button className="preview book-btn">Book Now</button>
+  </div>
+</div>
+</div>
+
+<div className="travel_destination" id="travel_destination">
   {/* <h2>Popular Destinations</h2> */}
   <Destinations
   image="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
@@ -130,13 +163,14 @@ const toggleMoreInfo = (serviceName) => {
     Join hundreds of satisfied travelers who have experienced the magic of Africa with us.
   </p>
   <div className="cta_actions">
-    <button className="btn btn-primary">Start Planning</button>
-    <button className="btn btn-outline">Contact Us</button>
+    <button className="btn btn-primary" onClick={() => setOpenPlan(true)}>Start Planning</button>
+    <button className="btn btn-outline" onClick={() => navigate('/contact')}>Contact Us</button>
   </div>
 </div>
 
 <Events />
 <About hideAboutUs={true} />
+<PlanTripModal isOpen={openPlan} onClose={() => setOpenPlan(false)} />
   
     </div>
   )

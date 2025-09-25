@@ -1,0 +1,46 @@
+.testimonials_slider{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 20px 0;
+    position: relative;
+}
+.t_track{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(280px, 520px));
+    gap: 18px;
+}
+.t_slide{
+    animation: fadeIn 600ms ease;
+}
+@keyframes fadeIn{
+    from{ opacity: 0; transform: translateY(8px); }
+    to{ opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 700px){
+    .t_track{ grid-template-columns: 1fr; }
+}
+
+.t_controls{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+.t_btn{
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #eee;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: all;
+}
+
+

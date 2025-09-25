@@ -4,6 +4,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import Events from "./pages/Events";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
+import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import Blog from "./pages/Blog";
@@ -27,6 +28,7 @@ function App() {
         <Link to="/" >Home</Link>
         <Link to="/event">Events</Link>
         <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
         {/* <Link to="/gallery">Shop</Link>
         <Link to="/blog">Blog</Link> */}
       </nav>
@@ -40,6 +42,7 @@ function App() {
           <Link to="/" onClick={toggleMenu}>Home</Link>
           <Link to="/event" onClick={toggleMenu}>Events</Link>
           <Link to="/about" onClick={toggleMenu}>About</Link>
+          <Link to="/contact" onClick={toggleMenu}>Contact</Link>
           {/* <Link to="/gallery" onClick={toggleMenu}>Shop</Link>
           <Link to="/blog" onClick={toggleMenu}>Blog</Link> */}
         </div>
@@ -49,14 +52,17 @@ function App() {
         </div>
       </nav>
 
-      <Routes>
-        <Route path="/"  element={<Home />} />
-        <Route path="/event" element={<Events />} />
-        <Route path="/about" element={<About />} />
+      <main className="app-content">
+        <Routes>
+          <Route path="/"  element={<Home />} />
+          <Route path="/event" element={<Events />} />
+          <Route path="/about" element={<About />} />
         {/* <Route path="/gallery" element={<Gallery />} />
         <Route path="/blog" element={<Blog />} /> */}
-      </Routes>   
-     
+        <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </main>
+
       <Footer />
     </div>
   );

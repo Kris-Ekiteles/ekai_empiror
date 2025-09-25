@@ -36,6 +36,13 @@ const Footer = () => {
             <FaLinkedin size={30} style={{ marginRight: 8 }} />
           </a>
         </div>
+        <div className="footer_links">
+          <p>Quick Links</p>
+          <Link to="/">Home</Link>
+          <Link to="/event">Events</Link>
+          <Link to="/about">About</Link>
+          <Link to="/contact">Contact</Link>
+        </div>
         <div className="our_space">
           <p> visit our space</p>
 

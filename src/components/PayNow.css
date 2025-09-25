@@ -48,11 +48,16 @@
     position: absolute;
     top: 8px;
     right: 10px;
-    background: transparent;
-    border: none;
-    font-size: 20px;
+    background: rgba(255,255,255,0.7);
+    border: 1px solid #a6dfb2;
+    font-size: 16px;
     cursor: pointer;
     color: #256c3a;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
 }
 
 .status_msg{

@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 
@@ -29,7 +29,7 @@ nav.nav-large-screen {
   width: 70%;
   margin: auto;
   border-radius: 7px;
-  position: absolute;
+  /* position: absolute; */
   transition: backgroung-color 0.3 ease;
   z-index: 1000;
   top: 0;
