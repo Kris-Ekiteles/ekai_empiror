@@ -23,23 +23,32 @@
 nav.nav-large-screen {
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  background-color: #eb6b03;
-  padding: .5rem;
-  width: 70%;
-  margin: auto;
-  border-radius: 7px;
-  /* position: absolute; */
-  transition: backgroung-color 0.3 ease;
-  z-index: 1000;
+  justify-content: space-between;
+  background: transparent; /* transparent over hero */
+  padding: 1rem 24px;
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  position: fixed; /* float over hero */
   top: 0;
   left: 0;
   right: 0;
+  transition: background-color 0.2s ease, box-shadow .2s ease;
+  z-index: 2000;
+}
+/* navbar scrolled state */
+.nav-scrolled{
+  background-color: #eb6b03 !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
 }
 nav.nav-large-screen a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
+  margin: 0 10px;
 }
+/* keep link colors readable before scroll; after scroll they remain white due to .nav-scrolled bg */
+.nav-scrolled a{ color: #ffffff !important; }
+.nav-scrolled h1{ color: #ffffff !important; }
 nav.nav-large-screen a:hover {
   background-color: blanchedalmond;
   color: chocolate;
@@ -49,7 +58,7 @@ nav.nav-large-screen a:hover {
 }
 nav.nav-large-screen h1 {
   left: 0;
-  color: aqua;
+  color: #ffffff;
   padding-left: 10px;
   cursor: pointer;
 }
@@ -67,18 +76,22 @@ nav.nav-large-screen h1 {
 }
   }
 
- @media (max-width: 768px) {
+@media (max-width: 768px) {
   
 
   .navbar{
     width: 100%;
-    background-color: #eb6b03;
-      position: absolute;
-  transition: backgroung-color 0.3 ease;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  right: 0;
+    background: transparent; /* transparent at top */
+    position: fixed; /* float over hero */
+    transition: background-color 0.2s ease, box-shadow .2s ease;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+  .nav-scrolled{
+    background-color: #eb6b03 !important;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.18);
   }
  .navbar h2{
     color: #eb6b03;
@@ -99,8 +112,8 @@ nav.nav-large-screen h1 {
     border-radius: 8px;
   }
   .nav-links a {
-    color: white;
-    padding: 10px 0;
+    color: #ffffff;
+    padding: 8px 0;
     border-bottom: 1px solid #555;
   }
 

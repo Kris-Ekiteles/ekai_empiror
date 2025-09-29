@@ -28,15 +28,18 @@ const toggleMoreInfo = (serviceName) => {
     <div>
       <div className='hero_section'>
         <div className="pic">
-          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="hero" />
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=80" alt="hero" />
         </div>
+        <div className="hero_overlay"></div>
         <div className="CTA">        
-       <h2>Ekai Safaris</h2>
-       <p>our team is dedicated to providing you with the best experience</p>
-       {/* <p><Typewriter words={['join us as we explore Kenya and have your best time', 'book with us for event planning', 'travel in style']} /></p> */}
-       <a href="#travel_destination" className="hero_cta">explore more</a>
-       <a href="#about_us" className="hero_cta">learn more</a>
-       </div>
+          <h2>Ekai Safaris</h2>
+          <p>Our team is dedicated to creating unforgettable journeys across Kenya and beyond.</p>
+          {/* <p><Typewriter words={['join us as we explore Kenya and have your best time', 'book with us for event planning', 'travel in style']} /></p> */}
+          <div className="actions">
+            <a href="#travel_destination" className="hero_cta">Explore Trips</a>
+            <a href="#about_us" className="hero_cta">Learn More</a>
+          </div>
+        </div>
       </div>
 <div className="hero-services">
    <Services

@@ -22,8 +22,15 @@ function App() {
 
 // will be visible for small screens sizes
  const [menuOpen, setMenuOpen] = useState(false);
+ const [scrolled, setScrolled] = useState(false);
 
-  const toggleMenu = () => setMenuOpen(prev => !prev);
+ const toggleMenu = () => setMenuOpen(prev => !prev);
+
+ useEffect(() => {
+   const onScroll = () => setScrolled(window.scrollY > 8);
+   window.addEventListener('scroll', onScroll, { passive: true });
+   return () => window.removeEventListener('scroll', onScroll);
+ }, []);
 
  
 
@@ -32,7 +39,7 @@ const isAuthenticated =!!localStorage.getItem('token');
 
 
     <div className="App">
-      <nav className="nav-large-screen">
+      <nav className={`nav-large-screen ${scrolled ? 'nav-scrolled' : ''}`}>
         <div>
           <h1>EkaiEmpiror</h1>
         </div>
@@ -44,7 +51,7 @@ const isAuthenticated =!!localStorage.getItem('token');
         <Link to="/blog">Blog</Link> */}
       </nav>
 
- <nav className="navbar">
+ <nav className={`navbar ${scrolled ? 'nav-scrolled' : ''}`}>
         <div className="logo">
           <h1>EkaiEmpiror</h1>
         </div>

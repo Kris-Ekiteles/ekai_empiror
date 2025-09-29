@@ -1,54 +1,66 @@
 .hero_section{
-    /* background-image: url('../Assets/FB_IMG_1758223057365.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;   
-    height: 700px; */
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    gap: 20px;
-    /* min-height: 600px; */
-    /* position: relative; */
+	position: relative;
+	display: grid;
+	grid-template-columns: 1fr;
+	place-items: center;
+	text-align: center;
+	color: #fff;
+	min-height: 100vh;
+	width: 100%;
+	margin: 0 auto 24px auto;
+	border-radius: 0;
+	overflow: hidden;
+	box-shadow: 0 18px 40px rgba(0,0,0,0.25);
 }
 .hero_section h2{
-    font-size: 36px;
-    color: #eb6b03;
-    margin-bottom: 8px;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+	font-size: 56px;
+	line-height: 1.1;
+	color: #ffffff;
+	margin-bottom: 10px;
+	text-shadow: 0 10px 30px rgba(0,0,0,0.45);
 }
 .hero_section p{
-    font-size: 16px;
-    color: #eb6b03;
-    margin-bottom: 8px;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.35);
+	font-size: 22px;
+	color: rgba(255,255,255,0.92);
+	margin-bottom: 12px;
+	max-width: 720px;
+	margin-left: auto;
+	margin-right: auto;
+	text-shadow: 0 8px 24px rgba(0,0,0,0.45);
 }
 .hero_cta{
-    margin-top: 12px;
-    background: #eb6b03;
-    color: #fff;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 10px;
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    gap: 20px;
+	display: inline-block;
+	margin-top: 12px;
+	background: linear-gradient(135deg, #f9b233, #ff4d00);
+	color: #0b1220;
+	border: none;
+	padding: 12px 18px;
+	border-radius: 12px;
+	cursor: pointer;
+	text-decoration: none;
+	font-weight: 700;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+	transition: transform .08s ease, filter .2s ease;
 }
+.hero_cta:hover{ filter: brightness(1.05); }
+.hero_cta:active{ transform: translateY(1px); }
 /* added */
 
+.pic{ position: absolute; inset: 0; }
 .pic img{
-    top: 0;
-    left: 0;
-    height: 250px;
-    width: 250px;
-    border-radius: 50%;
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
+.hero_overlay{
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55)), radial-gradient(60% 60% at 50% 10%, rgba(255,255,255,0.06), transparent 60%);
+}
+.CTA{ position: relative; padding: 42px 16px; z-index: 1; }
+.CTA .actions{ display: flex; gap: 12px; justify-content: center; margin-top: 10px; }
 .hero-services{
     perspective: 1000px;
     margin: auto;
@@ -156,42 +168,87 @@
     color: #eb6b03;
     border: 1px solid #eb6b03;
 }
-.filter-form{
-    width: 300px;
-    height: fit-content;
-    border: 2px solid #eb6b03;
-    padding: 10px;
+.filter-loc{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 40px;
+	width: 85%;
+	margin: 48px auto 28px auto;
+	padding: 24px;
+	background-color: #f4f4f4; /* match memories (no bg), keep cards styled */
+	border-radius: 20px;
+	box-shadow: none;
+	border: none;
 }
-.filter-form input{
-    outline: none;
-    width: 180px;
-    height: 30px;
-    margin: 10px;
+.side-pic{ flex: 1 1 50%; display: flex; justify-content: center; }
+.filter-img img{
+	height: 320px;
+	width: 100%;
+	max-width: 520px;
+	object-fit: cover;
+	border-radius: 16px;
+	box-shadow: 0 12px 28px rgba(0,0,0,0.2);
+}
+.filter-form{
+	flex: 1 1 50%;
+	max-width: 520px;
+	width: 100%;
+	background: rgba(255, 255, 255, 0.85);
+	backdrop-filter: blur(4px);
+	border: 1px solid rgba(0,0,0,0.06);
+	border-radius: 16px;
+	padding: 18px 18px 16px 18px;
+	box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 .filter-form label{
-    position: relative;
-    margin: 25px;
+	display: block;
+	margin: 8px 6px 4px 6px;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: .2px;
+	color: #6b4a20;
 }
-.filter-loc{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 70px;
+.filter-form input{
+	outline: none;
+	width: calc(100% - 12px);
+	height: 40px;
+	margin: 0 6px 12px 6px;
+	padding: 8px 10px;
+	border-radius: 10px;
+	border: 1px solid rgba(0,0,0,0.12);
+	background: #fffdf8;
+	color: #3b2f1a;
+	transition: border-color .15s ease, box-shadow .15s ease;
 }
-.filter-img img{
-    height: 300px;
-    width: 300px;
+.filter-form input:focus{
+	border-color: #eb6b03;
+	box-shadow: 0 0 0 3px rgba(235, 107, 3, 0.2);
+}
+.preview-book{ margin: 8px 6px 0 6px; }
+.preview-book .preview{
+	background-color: #eb6b03;
+	color: white;
+	padding: 10px 14px;
+	border-radius: 8px;
+	border: none;
+	margin-top: 6px;
+	cursor: pointer;
+	font-weight: 700;
+	box-shadow: 0 8px 18px rgba(235,107,3,0.25);
+	transition: transform .08s ease, filter .2s ease;
+}
+.preview-book .preview:hover{ filter: brightness(1.05); }
+.preview-book .preview:active{ transform: translateY(1px); }
+.preview-book .preview-btn{
+	background-color: #fff;
+	color: #eb6b03;
+	border: 2px solid #eb6b03;
 }
 
 @media (max-width: 768px) {
-    .hero_section {
-        height: 500px;
-         background-size: contain;
-         text-align: center;
-         width: 100%;
-         padding: 5px;
-    }
-    .hero_section h2{ font-size: 26px; }
+    .hero_section { min-height: 60vh; border-radius: 14px; }
+    .hero_section h2{ font-size: 30px; }
     .cta_banner{
         width: 92%;
         padding: 24px 16px;
@@ -200,9 +257,7 @@
     .cta_banner h2{ font-size: 22px; }
     .cta_banner p{ font-size: 14px; }
     .cta_actions{ gap: 12px; }
-    .hero_section p{
-    margin-left: 5px;    
-    }
+    .hero_section p{ margin-left: 5px; padding: 0 10px; }
     .travel_destination{
         display: grid;
         grid-template-columns: auto auto;        
@@ -215,11 +270,15 @@
         gap: 5px;
         height: fit-content;
     }
-    .pic img{
-        height: 150px;
-        width: 150px;
-    }
+    .pic img{ position: absolute; width:100%; height:100%; object-fit: cover; }
     .CTA a{
         gap: 10px;
     }
+    .filter-loc{
+    	flex-direction: column;
+    	width: 92%;
+    	padding: 16px;
+    }
+    .filter-img img{ height: 240px; max-width: 100%; }
+    .filter-form{ padding: 16px; }
 }
