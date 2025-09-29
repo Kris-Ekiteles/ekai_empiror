@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Link, Route, Routes } from "react-router-dom";
+import { Link, Route, Routes, Navigate, useNavigate } from "react-router-dom";
 import Events from "./pages/Events";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
@@ -8,8 +7,15 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import Blog from "./pages/Blog";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+
+//admin
+import AdminDashboard from "./pages/AdminDashboard";
+import AdminLogin from "./pages/AdminLogin";
+
+
+
 
 
 function App() {
@@ -19,7 +25,12 @@ function App() {
 
   const toggleMenu = () => setMenuOpen(prev => !prev);
 
+ 
+
+const isAuthenticated =!!localStorage.getItem('token');
   return (
+
+
     <div className="App">
       <nav className="nav-large-screen">
         <div>
@@ -53,13 +64,28 @@ function App() {
       </nav>
 
       <main className="app-content">
+            {/* protected from client */}
+        
+
         <Routes>
+           {/* Public admin route */}
+      <Route path="/admin/login" element={<AdminLogin />} />
+
+      {/* Protected admin dashboard route */}
+      <Route
+        path="/admin/dashboard"
+        element={
+          isAuthenticated ? <AdminDashboard /> : <Navigate to="/admin/login" />
+        }
+      />
+          
           <Route path="/"  element={<Home />} />
           <Route path="/event" element={<Events />} />
           <Route path="/about" element={<About />} />
         {/* <Route path="/gallery" element={<Gallery />} />
         <Route path="/blog" element={<Blog />} /> */}
         <Route path="/contact" element={<Contact />} />
+
         </Routes>
       </main>
 

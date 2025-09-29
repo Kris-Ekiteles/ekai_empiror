@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import './Contact.css'
 
 const Contact = () => {
@@ -22,6 +22,15 @@ const Contact = () => {
       setStatus('Something went wrong. Please try again.')
     }
   }
+
+    const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    fetch('/contact')
+      .then(res => res.text()) // because your backend sends plain text
+      .then(data => setMessage(data))
+      .catch(err => console.error('Error fetching contact:', err));
+  }, []);
 
   return (
     <section className="contact_section">
