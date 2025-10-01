@@ -1,5 +1,5 @@
 import "./App.css";
-import { Link, Route, Routes, Navigate, useNavigate } from "react-router-dom";
+import { Link, Route, Routes, Navigate, useNavigate, useLocation } from "react-router-dom";
 import Events from "./pages/Events";
 import Home from "./pages/Home";
 import Gallery from "./pages/Gallery";
@@ -22,15 +22,19 @@ function App() {
 
 // will be visible for small screens sizes
  const [menuOpen, setMenuOpen] = useState(false);
- const [scrolled, setScrolled] = useState(false);
+ const location = useLocation();
+ const hasHero = location.pathname === '/';
+ const [scrolled, setScrolled] = useState(!hasHero);
 
  const toggleMenu = () => setMenuOpen(prev => !prev);
 
  useEffect(() => {
-   const onScroll = () => setScrolled(window.scrollY > 8);
+   const onScroll = () => setScrolled(!hasHero || window.scrollY > 8);
+   // set once on route change
+   onScroll();
    window.addEventListener('scroll', onScroll, { passive: true });
    return () => window.removeEventListener('scroll', onScroll);
- }, []);
+ }, [hasHero]);
 
  
 

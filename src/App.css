@@ -15,6 +15,8 @@
 .app-content {
   flex: 1;
   width: 100%;
+  /* Prevent content from going under fixed navs on pages without hero */
+  padding-top: 72px;
 }
 
 /* removed desktop padding after reverting nav to sticky */
@@ -125,7 +127,7 @@ nav.nav-large-screen h1 {
     display: block;
     color: whitesmoke;
   }
-  .nav-large-screen{
+  nav.nav-large-screen{
     display: none;
   }
 }

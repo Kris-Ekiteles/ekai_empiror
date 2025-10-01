@@ -1,31 +1,59 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Events.css";
-import Image from "../Assets/namanga.png";
 import Card from "../components/Card";
-import suswa from "../Assets/suswa.jpg";
-import njiine from "../Assets/njiine_kabia.jpg";
-import PayNow from "../components/PayNow";
 
 const Events = () => {
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const fetchEvents = async () => {
+      setLoading(true);
+      setError("");
+      try {
+        // Try a public endpoint first; fallback to /api/events (no auth) if needed
+        const res = await fetch("/api/events/public");
+        if (!res.ok) {
+          const fallback = await fetch("/api/events");
+          if (!fallback.ok) throw new Error("Failed to load events");
+          const data = await fallback.json();
+          if (!cancelled) setEvents(Array.isArray(data) ? data : []);
+        } else {
+          const data = await res.json();
+          if (!cancelled) setEvents(Array.isArray(data) ? data : []);
+        }
+      } catch (e) {
+        if (!cancelled) setError("Could not load events. Please try again later.");
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    };
+
+    fetchEvents();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  if (loading) return <div className="product"><p>Loading events...</p></div>;
+  if (error) return <div className="product"><p>{error}</p></div>;
+
   return (
     <div className="product">
-     
-      <Card
-        img={suswa}
-        name="suswa fun Drive"
-        price="1700"
-        button="book event"
-        reserve="reserve slot"
-      />
-      <Card
-        img={njiine}
-        name="Njiine Kabia Expedition"
-        price="3000"
-        button="book event"
-        reserve="reserve slot"
-      />
-
-      <PayNow />
+      {events.length === 0 && <p>No events available.</p>}
+      {events.map((evt) => (
+        <Card
+          key={evt._id || `${evt.name}-${evt.imageUrl}`}
+          img={evt.imageUrl}
+          name={evt.name}
+          price={evt.price}
+          button="book event"
+          reserve="reserve slot"
+        />
+      ))}
     </div>
   );
 };

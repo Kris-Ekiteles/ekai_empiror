@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import '../pages/Home.css'
 import Typewriter from '../components/Textanim'
 import Services from '../components/Services'
@@ -7,9 +7,9 @@ import { MdOutlineEventNote, MdOutlineGroups2 } from "react-icons/md";
 import Destinations from '../components/Destinations'
 import About from './About'
 import Events from './Events'
-import {useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import PlanTripModal from '../components/PlanTripModal'
+import Card from '../components/Card'
 
 
 const Home = () => {
@@ -19,6 +19,36 @@ const Home = () => {
   const [activeService, setActiveService] = useState(null);
   const [openPlan, setOpenPlan] = useState(false);
   const navigate = useNavigate();
+  const [eventsPreview, setEventsPreview] = useState([]);
+  const [loadingEvents, setLoadingEvents] = useState(true);
+  const [eventsError, setEventsError] = useState('');
+
+  useEffect(() => {
+    let cancelled = false;
+    const load = async () => {
+      setLoadingEvents(true);
+      setEventsError('');
+      try {
+        const res = await fetch('/api/events/public');
+        let data;
+        if (!res.ok) {
+          const fallback = await fetch('/api/events');
+          if (!fallback.ok) throw new Error('failed');
+          data = await fallback.json();
+        } else {
+          data = await res.json();
+        }
+        if (!Array.isArray(data)) data = [];
+        if (!cancelled) setEventsPreview(data.slice(0, 4));
+      } catch (e) {
+        if (!cancelled) setEventsError('Could not load events.');
+      } finally {
+        if (!cancelled) setLoadingEvents(false);
+      }
+    };
+    load();
+    return () => { cancelled = true; };
+  }, []);
 const toggleMoreInfo = (serviceName) => {
  
  setActiveService(prev => prev === serviceName ? null : serviceName);
@@ -171,7 +201,27 @@ const toggleMoreInfo = (serviceName) => {
   </div>
 </div>
 
-<Events />
+{/* Events preview (first 4) with See More */}
+<div className="home-events-preview">
+  <h2>Upcoming Events</h2>
+  {loadingEvents && <p>Loading events...</p>}
+  {eventsError && <p>{eventsError}</p>}
+  <div className="product">
+    {eventsPreview.map((evt) => (
+      <Card
+        key={evt._id || `${evt.name}-${evt.imageUrl}`}
+        img={evt.imageUrl}
+        name={evt.name}
+        price={evt.price}
+        button="book event"
+        reserve="reserve slot"
+      />
+    ))}
+  </div>
+  <div style={{ textAlign: 'center', marginTop: '16px' }}>
+    <button className="btn btn-primary" onClick={() => navigate('/event')}>See more events</button>
+  </div>
+</div>
 <About hideAboutUs={true} />
 <PlanTripModal isOpen={openPlan} onClose={() => setOpenPlan(false)} />
   
