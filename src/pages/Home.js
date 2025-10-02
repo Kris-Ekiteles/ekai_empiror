@@ -29,10 +29,10 @@ const Home = () => {
       setLoadingEvents(true);
       setEventsError('');
       try {
-        const res = await fetch('/api/events/public');
+        const res = await fetch('https://ekaibackend.onrender.com/api/events/public');
         let data;
         if (!res.ok) {
-          const fallback = await fetch('/api/events');
+          const fallback = await fetch('https://ekaibackend.onrender.com/api/events');
           if (!fallback.ok) throw new Error('failed');
           data = await fallback.json();
         } else {
