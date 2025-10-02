@@ -47,10 +47,10 @@ function AdminDashboard() {
     setLoading(true);
     const errors = [];
     const results = await Promise.allSettled([
-      axios.get('/api/about', authHeader),
-      axios.get('/api/events', authHeader),
-      axios.get('/api/memories', authHeader),
-      axios.get('/api/destinations', authHeader)
+      axios.get('https://ekaibackend.onrender.com/api/about', authHeader),
+      axios.get('https://ekaibackend.onrender.com/api/events', authHeader),
+      axios.get('https://ekaibackend.onrender.com/api/memories', authHeader),
+      axios.get('https://ekaibackend.onrender.com/api/destinations', authHeader)
     ]);
     // About
     if (results[0].status === 'fulfilled') {
@@ -89,9 +89,9 @@ function AdminDashboard() {
     if (!newAbout.imageUrl || !newAbout.caption) return;
     setLoading(true);
     try {
-      await axios.post('/api/about', newAbout, authHeader);
+      await axios.post('https://ekaibackend.onrender.com/api/about', newAbout, authHeader);
       setNewAbout({ imageUrl: '', caption: '' });
-      const res = await axios.get('/api/about', authHeader);
+      const res = await axios.get('https://ekaibackend.onrender.com/api/about', authHeader);
       setAboutItems(res.data || []);
     } catch (e) {
       setError('Failed to add about item');
@@ -102,7 +102,7 @@ function AdminDashboard() {
   const deleteAbout = async (id) => {
     setLoading(true);
     try {
-      await axios.delete(`/api/about/${id}`, authHeader);
+      await axios.delete(`https://ekaibackend.onrender.com/api/about/${id}`, authHeader);
       setAboutItems((prev) => prev.filter((i) => i._id !== id));
     } catch (e) {
       setError('Failed to delete about item');
@@ -113,8 +113,8 @@ function AdminDashboard() {
   const updateAbout = async (id, data) => {
     setLoading(true);
     try {
-      await axios.put(`/api/about/${id}`, data, authHeader);
-      const res = await axios.get('/api/about', authHeader);
+      await axios.put(`https://ekaibackend.onrender.com/api/about/${id}`, data, authHeader);
+      const res = await axios.get('https://ekaibackend.onrender.com/api/about', authHeader);
       setAboutItems(res.data || []);
     } catch (e) {
       setError('Failed to update about item');
@@ -132,12 +132,12 @@ function AdminDashboard() {
         formData.append('image', newEvent.file);
         formData.append('name', newEvent.name);
         formData.append('price', newEvent.price);
-        await axios.post('/api/events', formData, { headers: { ...(authHeader.headers || {}), 'Content-Type': 'multipart/form-data' } });
+        await axios.post('https://ekaibackend.onrender.com/api/events', formData, { headers: { ...(authHeader.headers || {}), 'Content-Type': 'multipart/form-data' } });
       } else {
-        await axios.post('/api/events', { imageUrl: newEvent.imageUrl, name: newEvent.name, price: newEvent.price }, authHeader);
+        await axios.post('https://ekaibackend.onrender.com/api/events', { imageUrl: newEvent.imageUrl, name: newEvent.name, price: newEvent.price }, authHeader);
       }
       setNewEvent({ imageUrl: '', name: '', price: '', file: null });
-      const res = await axios.get('/api/events', authHeader);
+      const res = await axios.get('https://ekaibackend.onrender.com/api/events', authHeader);
       setEvents(res.data || []);
     } catch (e) {
       setError(`Failed to add event: ${e?.response?.status || ''} ${e?.response?.data?.message || e?.message || 'error'}`);
@@ -148,7 +148,7 @@ function AdminDashboard() {
   const deleteEvent = async (id) => {
     setLoading(true);
     try {
-      await axios.delete(`/api/events/${id}`, authHeader);
+      await axios.delete(`https://ekaibackend.onrender.com/api/events/${id}`, authHeader);
       setEvents((prev) => prev.filter((i) => i._id !== id));
     } catch (e) {
       setError('Failed to delete event');
@@ -159,8 +159,8 @@ function AdminDashboard() {
   const updateEvent = async (id, data) => {
     setLoading(true);
     try {
-      await axios.put(`/api/events/${id}`, data, authHeader);
-      const res = await axios.get('/api/events', authHeader);
+      await axios.put(`https://ekaibackend.onrender.com/api/events/${id}`, data, authHeader);
+      const res = await axios.get('https://ekaibackend.onrender.com/api/events', authHeader);
       setEvents(res.data || []);
     } catch (e) {
       setError('Failed to update event');
@@ -173,9 +173,9 @@ function AdminDashboard() {
     if (!newMemory.imageUrl) return;
     setLoading(true);
     try {
-      await axios.post('/api/memories', newMemory, authHeader);
+      await axios.post('https://ekaibackend.onrender.com/api/memories', newMemory, authHeader);
       setNewMemory({ imageUrl: '' });
-      const res = await axios.get('/api/memories', authHeader);
+      const res = await axios.get('https://ekaibackend.onrender.com/api/memories', authHeader);
       setMemories(res.data || []);
     } catch (e) {
       setError('Failed to add memory');
@@ -186,7 +186,7 @@ function AdminDashboard() {
   const deleteMemory = async (id) => {
     setLoading(true);
     try {
-      await axios.delete(`/api/memories/${id}`, authHeader);
+      await axios.delete(`https://ekaibackend.onrender.com/api/memories/${id}`, authHeader);
       setMemories((prev) => prev.filter((i) => i._id !== id));
     } catch (e) {
       setError('Failed to delete memory');
@@ -199,9 +199,9 @@ function AdminDashboard() {
     if (!newDestination.imageUrl || !newDestination.name || !newDestination.description || !newDestination.price) return;
     setLoading(true);
     try {
-      await axios.post('/api/destinations', newDestination, authHeader);
+      await axios.post('https://ekaibackend.onrender.com/api/destinations', newDestination, authHeader);
       setNewDestination({ imageUrl: '', name: '', description: '', price: '' });
-      const res = await axios.get('/api/destinations', authHeader);
+      const res = await axios.get('https://ekaibackend.onrender.com/api/destinations', authHeader);
       setDestinations(res.data || []);
     } catch (e) {
       setError('Failed to add destination');
@@ -212,7 +212,7 @@ function AdminDashboard() {
   const deleteDestination = async (id) => {
     setLoading(true);
     try {
-      await axios.delete(`/api/destinations/${id}`, authHeader);
+      await axios.delete(`https://ekaibackend.onrender.com/api/destinations/${id}`, authHeader);
       setDestinations((prev) => prev.filter((i) => i._id !== id));
     } catch (e) {
       setError('Failed to delete destination');
@@ -223,8 +223,8 @@ function AdminDashboard() {
   const updateDestination = async (id, data) => {
     setLoading(true);
     try {
-      await axios.put(`/api/destinations/${id}`, data, authHeader);
-      const res = await axios.get('/api/destinations', authHeader);
+      await axios.put(`https://ekaibackend.onrender.com/api/destinations/${id}`, data, authHeader);
+      const res = await axios.get('https://ekaibackend.onrender.com/api/destinations', authHeader);
       setDestinations(res.data || []);
     } catch (e) {
       setError('Failed to update destination');
