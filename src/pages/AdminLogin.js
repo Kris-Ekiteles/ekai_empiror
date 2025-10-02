@@ -15,7 +15,7 @@ function AdminLogin() {
     setError('');
     setLoading(true);
     try {
-      const res = await axios.post('/api/admin/login', { username, password });
+      const res = await axios.post('https://ekaibackend.onrender.com/api/admin/login', { username, password });
       localStorage.setItem('token', res.data.token);
       navigate('/admin/dashboard', { replace: true });
     } catch (err) {
