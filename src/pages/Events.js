@@ -14,10 +14,10 @@ const Events = () => {
       setLoading(true);
       setError("");
       try {
-        // Try a public endpoint first; fallback to /api/events (no auth) if needed
-        const res = await fetch("/api/events/public");
+        // Try production backend endpoints
+        const res = await fetch("https://ekaibackend.onrender.com/api/events/public");
         if (!res.ok) {
-          const fallback = await fetch("/api/events");
+          const fallback = await fetch("https://ekaibackend.onrender.com/api/events");
           if (!fallback.ok) throw new Error("Failed to load events");
           const data = await fallback.json();
           if (!cancelled) setEvents(Array.isArray(data) ? data : []);
