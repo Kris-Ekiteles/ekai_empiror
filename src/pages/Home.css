@@ -211,7 +211,7 @@
 	letter-spacing: .2px;
 	color: #6b4a20;
 }
-.filter-form input{
+.filter-form input, .filter-form textarea{
 	outline: none;
 	width: calc(100% - 12px);
 	height: 40px;
@@ -223,7 +223,7 @@
 	color: #3b2f1a;
 	transition: border-color .15s ease, box-shadow .15s ease;
 }
-.filter-form input:focus{
+.filter-form input:focus, .filter-form textarea:focus{
 	border-color: #eb6b03;
 	box-shadow: 0 0 0 3px rgba(235, 107, 3, 0.2);
 }

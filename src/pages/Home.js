@@ -22,6 +22,15 @@ const Home = () => {
   const [eventsPreview, setEventsPreview] = useState([]);
   const [loadingEvents, setLoadingEvents] = useState(true);
   const [eventsError, setEventsError] = useState('');
+  const [planSubmitting, setPlanSubmitting] = useState(false);
+  const [planStatus, setPlanStatus] = useState('');
+  const [planForm, setPlanForm] = useState({
+    date: '',
+    preferredLocation: '',
+    description: '',
+    email: '',
+    phone: ''
+  });
 
   useEffect(() => {
     let cancelled = false;
@@ -149,16 +158,70 @@ const toggleMoreInfo = (serviceName) => {
   </div>
   </div>
 <div className="filter-form">
-  <label>location</label>
-  <input type="text"placeholder='Nanyuki,olesereni'/>
   <label>Date</label>
-  <input type=''></input>
-  <label>Price</label>
-  <input type="text"/>
+  <input
+    type='date'
+    value={planForm.date}
+    onChange={(e) => setPlanForm({ ...planForm, date: e.target.value })}
+  />
+  <label>Preferred Location/Visit</label>
+  <input
+    type="text"
+    placeholder='e.g. Maasai Mara, Diani, Amboseli'
+    value={planForm.preferredLocation}
+    onChange={(e) => setPlanForm({ ...planForm, preferredLocation: e.target.value })}
+  />
+  <label>Brief Description</label>
+  <textarea
+    rows="3"
+    placeholder='Tell us about your trip preferences'
+    value={planForm.description}
+    onChange={(e) => setPlanForm({ ...planForm, description: e.target.value })}
+  />
+  <label>Email</label>
+  <input
+    type="email"
+    placeholder='you@example.com'
+    value={planForm.email}
+    onChange={(e) => setPlanForm({ ...planForm, email: e.target.value })}
+  />
+  <label>Phone</label>
+  <input
+    type="tel"
+    placeholder='2547XXXXXXXX'
+    value={planForm.phone}
+    onChange={(e) => setPlanForm({ ...planForm, phone: e.target.value })}
+  />
   <div className="preview-book">
-   <button className="preview preview-btn">Preview Hotel</button>
-   <button className="preview book-btn">Book Now</button>
+   <button className="preview preview-btn" disabled={planSubmitting}>Preview Hotel</button>
+   <button
+     className="preview book-btn"
+     disabled={planSubmitting}
+     onClick={async () => {
+       setPlanStatus('');
+       if (!planForm.email || !planForm.phone || !planForm.date) {
+         setPlanStatus('Please fill required fields: email, phone, date.');
+         return;
+       }
+       try {
+         setPlanSubmitting(true);
+         const res = await fetch('https://ekaibackend.onrender.com/api/plan', {
+           method: 'POST',
+           headers: { 'Content-Type': 'application/json' },
+           body: JSON.stringify(planForm)
+         });
+         if (!res.ok) throw new Error('Failed to submit');
+         setPlanStatus('Request sent successfully! We will contact you soon.');
+         setPlanForm({ date: '', preferredLocation: '', description: '', email: '', phone: '' });
+       } catch (e) {
+         setPlanStatus('Failed to send request. Please try again.');
+       } finally {
+         setPlanSubmitting(false);
+       }
+     }}
+   >Send Request</button>
   </div>
+  {planStatus && <p style={{ margin: '8px 6px 0 6px', color: planStatus.startsWith('Failed') ? '#b00020' : '#256c3a' }}>{planStatus}</p>}
 </div>
 </div>
 

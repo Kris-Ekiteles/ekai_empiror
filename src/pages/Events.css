@@ -7,15 +7,14 @@
 
 .product{  
     margin-bottom: 10px;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-   gap: 20px;
-   flex-wrap: wrap;
-   padding: 100px;
-   padding-top: 80px; /* space for floating navbar */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    justify-content: center;
+    align-items: start;
+    gap: 24px;
+    padding: 100px;
+    padding-top: 80px; /* space for floating navbar */
     flex: 1; /* occupy remaining space to push footer down */
-
 }
 .product_header{
     text-align: center;
@@ -38,9 +37,11 @@
     background-color: #f4f4f4;
     margin-bottom: 10px;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     justify-content: center;
-    align-items: center;
+    align-items: start;
+    gap: 16px;
+    padding: 16px;
     padding-top: 64px; /* adjust for smaller navbar height on mobile */
     flex: 1;
    }

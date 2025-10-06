@@ -1,62 +1,58 @@
 .btn{
     display: flex;
     justify-content: space-between;
-  
+    gap: 8px;
 }
 .upcoming-events{
-
-padding: 8px;
+    padding: 12px;
     box-sizing: border-box;
-    height: 310px;
-    width: 250px;
-    border-radius: 2px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 380px;
+    width: 300px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+    transition: box-shadow .2s ease, transform .08s ease;
 }
+.upcoming-events:hover{ box-shadow: 0 14px 32px rgba(0,0,0,0.18); transform: translateY(-2px); }
 .btn button{
-     color: white;
-    border-radius: 5px;
-    padding: 5px;
-cursor: pointer;
-margin-bottom: 2px;
+    color: white;
+    border-radius: 8px;
+    padding: 10px 12px;
+    cursor: pointer;
+    margin-bottom: 2px;
     background-color: #ff6200;
     border: none;
-    font-weight: bold;
-
+    font-weight: 700;
+    flex: 1 1 0;
 }
 .upcoming-events img{
-    border-radius: 5px;
-    height: 205px;
+    border-radius: 10px;
+    height: 220px;
     width: 100%;
     object-fit: cover;
     object-position: center;
     margin-bottom: 5px;
 }
 
+.event_description h3{ margin: 6px 0 4px 0; }
+.event_description .price{ font-weight: 700; color: #eb6b03; }
+
 @media(max-width:600px){
     .upcoming-events{
-        margin: 3px;
-        padding: 3px;
-        width: 170px;
-        height: fit-content;
-       box-shadow: 2px 2px 5px grey;
+        margin: 6px;
+        padding: 8px;
+        width: 100%;
+        max-width: 320px;
+        height: auto;
+        box-shadow: 0 8px 18px rgba(0,0,0,0.12);
         box-sizing: border-box;
     }
+    .upcoming-events img{ height: 190px; }
      .upcoming-events p{
       margin-top: 3px;
     }
-    .btn{
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 3px;
-        justify-content: center;
-        align-items: center;
-    }
-    .btn button{
-        margin-top: 3px;
-        padding: 3px;
-        width: 100px;
-        border-radius: 6px;
-    }
+    .btn{ flex-direction: column; gap: 6px; }
+    .btn button{ width: 100%; padding: 10px; }
     .price{
         margin-bottom: 3px;
     }
