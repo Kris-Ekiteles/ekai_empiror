@@ -249,7 +249,7 @@
 }
 
 @media (max-width: 768px) {
-    .hero_section { min-height: 60vh; border-radius: 14px; margin-top: -60px; }
+    .hero_section { min-height: 60vh; border-radius: 0; margin-top: -60px; width: 100%; }
     .hero_section h2{ font-size: 30px; }
     .cta_banner{
         width: 92%;
