@@ -29,6 +29,8 @@ const Home = () => {
       setLoadingEvents(true);
       setEventsError('');
       try {
+
+      //backend url to fetch data from render
         const res = await fetch('https://ekaibackend.onrender.com/api/events/public');
         let data;
         if (!res.ok) {
