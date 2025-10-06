@@ -6,6 +6,7 @@ body {
   margin: 0;
   box-sizing: border-box;
   min-height: 100vh;
+  font-family: 'Outfit', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
   /* display: flex;
   flex-direction: column; */
 
