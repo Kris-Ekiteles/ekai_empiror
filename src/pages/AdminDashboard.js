@@ -124,21 +124,40 @@ function AdminDashboard() {
 
   // Events CRUD
   const addEvent = async () => {
-    if ((!newEvent.imageUrl && !newEvent.file) || !newEvent.name || !newEvent.price) return;
+    if (!newEvent.name || !newEvent.price) {
+      setError('Please fill in name and price fields');
+      return;
+    }
+    if (!newEvent.imageUrl && !newEvent.file) {
+      setError('Please provide either an image URL or upload a file');
+      return;
+    }
+    
     setLoading(true);
+    setError('');
     try {
       if (newEvent.file) {
         const formData = new FormData();
         formData.append('image', newEvent.file);
         formData.append('name', newEvent.name);
         formData.append('price', newEvent.price);
-        await axios.post('https://ekaibackend.onrender.com/api/events', formData, { headers: { ...(authHeader.headers || {}), 'Content-Type': 'multipart/form-data' } });
+        await axios.post('https://ekaibackend.onrender.com/api/events', formData, { 
+          headers: { 
+            ...(authHeader.headers || {}), 
+            'Content-Type': 'multipart/form-data' 
+          } 
+        });
       } else {
-        await axios.post('https://ekaibackend.onrender.com/api/events', { imageUrl: newEvent.imageUrl, name: newEvent.name, price: newEvent.price }, authHeader);
+        await axios.post('https://ekaibackend.onrender.com/api/events', { 
+          imageUrl: newEvent.imageUrl, 
+          name: newEvent.name, 
+          price: newEvent.price 
+        }, authHeader);
       }
       setNewEvent({ imageUrl: '', name: '', price: '', file: null });
       const res = await axios.get('https://ekaibackend.onrender.com/api/events', authHeader);
       setEvents(res.data || []);
+      setError(''); // Clear any previous errors
     } catch (e) {
       setError(`Failed to add event: ${e?.response?.status || ''} ${e?.response?.data?.message || e?.message || 'error'}`);
     }
@@ -278,11 +297,31 @@ function AdminDashboard() {
         <section className="admin-section">
           <h3>Events</h3>
           <div className="form-grid">
-            <input placeholder="Image URL" value={newEvent.imageUrl} onChange={(e) => setNewEvent({ ...newEvent, imageUrl: e.target.value })} />
-            <input type="file" accept="image/*" onChange={(e) => setNewEvent({ ...newEvent, file: e.target.files?.[0] || null })} />
-            <input placeholder="Name" value={newEvent.name} onChange={(e) => setNewEvent({ ...newEvent, name: e.target.value })} />
-            <input placeholder="Price" value={newEvent.price} onChange={(e) => setNewEvent({ ...newEvent, price: e.target.value })} />
-            <button onClick={addEvent} disabled={loading}>Add</button>
+            <input 
+              placeholder="Image URL" 
+              value={newEvent.imageUrl} 
+              onChange={(e) => setNewEvent({ ...newEvent, imageUrl: e.target.value })} 
+            />
+            <input 
+              type="file" 
+              accept="image/*" 
+              onChange={(e) => setNewEvent({ ...newEvent, file: e.target.files?.[0] || null })} 
+            />
+            <input 
+              placeholder="Name *" 
+              value={newEvent.name} 
+              onChange={(e) => setNewEvent({ ...newEvent, name: e.target.value })} 
+              required
+            />
+            <input 
+              placeholder="Price *" 
+              value={newEvent.price} 
+              onChange={(e) => setNewEvent({ ...newEvent, price: e.target.value })} 
+              required
+            />
+            <button onClick={addEvent} disabled={loading || !newEvent.name || !newEvent.price}>
+              {loading ? 'Adding...' : 'Add Event'}
+            </button>
           </div>
           <div className="cards-grid">
             {events.map((item) => (
