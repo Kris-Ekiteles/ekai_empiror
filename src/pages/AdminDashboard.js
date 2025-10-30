@@ -136,27 +136,37 @@ function AdminDashboard() {
     setLoading(true);
     setError('');
     try {
+     
+      let res;
       if (newEvent.file) {
         const formData = new FormData();
         formData.append('image', newEvent.file);
         formData.append('name', newEvent.name);
         formData.append('price', newEvent.price);
-        await axios.post('https://ekaibackend.onrender.com/api/events', formData, { 
+        res = await axios.post(
+          'https://ekaibackend.onrender.com/api/events',
+           formData, {         
           headers: { 
             ...(authHeader.headers || {}), 
             'Content-Type': 'multipart/form-data' 
-          } 
+          },
         });
       } else {
-        await axios.post('https://ekaibackend.onrender.com/api/events', { 
+       res = await axios.post(
+        'https://ekaibackend.onrender.com/api/events',
+         { 
           imageUrl: newEvent.imageUrl, 
           name: newEvent.name, 
           price: newEvent.price 
         }, authHeader);
       }
+
+      const updatedRes = await axios.get('https://ekaibackend.onrender.com/api/events',
+         authHeader
+        );
+
+         setEvents(updatedRes.data || []);
       setNewEvent({ imageUrl: '', name: '', price: '', file: null });
-      const res = await axios.get('https://ekaibackend.onrender.com/api/events', authHeader);
-      setEvents(res.data || []);
       setError(''); // Clear any previous errors
     } catch (e) {
       setError(`Failed to add event: ${e?.response?.status || ''} ${e?.response?.data?.message || e?.message || 'error'}`);
